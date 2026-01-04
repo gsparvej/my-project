@@ -1,6 +1,8 @@
-const { useState, useEffect } = require("react")
+const { useState, useEffect } = require("react");
+import AddUser from ".src/components/users/addUser";
+require("./userList.css");
 
-const UserCreate = () => {
+const UserList = () => {
     const [users, setUsers] = useState(() => {
         const savedUsers = localStorage.getItem("users")
         return savedUsers ? JSON.parse(savedUsers) : []
@@ -14,6 +16,7 @@ const UserCreate = () => {
         phone: "",
         age: ""
     });
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         localStorage.setItem("users", JSON.stringify(users));
@@ -24,66 +27,72 @@ const UserCreate = () => {
         setUser({ ...user, [e.target.name]: e.target.value });
     };
 
-    // Add New User
+    // Add or Update User
     const handleAddUser = () => {
         if (!user.name || !user.email)
             return;
-        const newUser = { ...user, id: Date.now() };
-        setUsers([...users, newUser]);
-        setUser({ id: "", name: "", email: "", address: "", phone: "", age: "" });
 
+        if (user.id) {
+            // Update existing user
+            const updatedUsers = users.map((u) => u.id === user.id ? user : u);
+            setUsers(updatedUsers);
+        } else {
+            // Add new user
+            const newUser = { ...user, id: Date.now() };
+            setUsers([...users, newUser]);
+        }
+        closeModal();
+    };
+
+    const openAddModal = () => {
+        setUser({ id: "", name: "", email: "", address: "", phone: "", age: "" });
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setUser({ id: "", name: "", email: "", address: "", phone: "", age: "" });
+    };
+
+    // delete user
+    const handleDeleteUser = (id) => {
+        const filteredUsers = users.filter((u) => u.id !== id);
+        setUsers(filteredUsers);
+    };
+
+    // edit user
+    const handleEditUser = (id) => {
+        const userToEdit = users.find((u) => u.id === id);
+        setUser(userToEdit);
+        setIsModalOpen(true);
     };
     return (
-        <div>
-            <h2>Create User</h2>
-            <input
-                type="text"
-                name="name"
-                placeholder="Input Your Full Name"
-                value={user.name}
-                onChange={handleChange}
-            />
-            <input
-                type="email"
-                name="email"
-                placeholder="Input Your Email Address"
-                value={user.email}
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="address"
-                placeholder="Input Your Address"
-                value={user.address}
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="phone"
-                placeholder="Input Your Phone Number"
-                value={user.phone}
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="age"
-                placeholder="Input Your Age"
-                value={user.age}
-                onChange={handleChange}
-            />
-            <button onClick={handleAddUser}> Add User</button>
-            <h3>User List</h3>
-            <ul>
+        <div className="user-container">
+            <button className="add-btn" onClick={openAddModal}>Add User</button>
+            <h3 className="list-title">User List</h3>
+            <ul className="user-list">
                 {users.map((u) => (
-                    <li key={u.id}>
-                        {u.name} | {u.email} | {u.address} | {u.phone} | {u.age}
+                    <li key={u.id} className="user-item">
+                        <span className="user-info">{u.name} | {u.email} | {u.address} | {u.phone} | {u.age}</span>
+                        <div className="action-buttons">
+                            <button className="delete-btn" onClick={() => handleDeleteUser(u.id)}>Delete</button>
+                            <button className="edit-btn" onClick={() => handleEditUser(u.id)}>Edit</button>
+                        </div>
                     </li>
                 ))}
             </ul>
+            {isModalOpen && (
+                <AddUser
+                    user={user}
+                    handleChange={handleChange}
+                    handleSubmit={handleAddUser}
+                    closeModal={closeModal}
+                    isEditing={!!user.id}
+                />
+            )}
         </div>
-
     );
 };
 
 
-export default UserCreate;
+export default UserList;
