@@ -1,11 +1,11 @@
 import React from "react";
-import UserList from "./components/users/userList";
+import HomePage from "./components/home/homePage";
 
 
 function App() {
   return (
     <div>
-      <UserList />
+      <HomePage />
     </div>
   );
 }

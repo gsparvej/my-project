@@ -1,0 +1,39 @@
+.home {
+    font-family: Arial, sans-serif;
+}
+
+.home-header {
+    background: #282c34;
+    color: white;
+    padding: 60px;
+    text-align: center;
+}
+
+.home-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: #61dafb;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: #61dafb;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.home-features {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+.feature {
+    width: 25%;
+    text-align: center;
+}
