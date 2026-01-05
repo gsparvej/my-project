@@ -6,7 +6,7 @@ const HomePage = () => {
     return (
         <div className="home">
             <header className="home-header">
-                <h1>Welcome to My App</h1>
+                <h1>Welcome to My System</h1>
                 <p>This is a simple React Home Page</p>
                 <button className="home-btn">Get Started</button>
             </header>
