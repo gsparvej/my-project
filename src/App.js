@@ -2,7 +2,7 @@ import React from "react";
 import HomePage from "./components/home/homePage";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import UserList from "./components/users/userList";
-
+import ProductList from "./components/products/ProductList";
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/users" element={<UserList />} />
+          <Route path="/products" element={<ProductList />} />
         </Routes>
       </Router>
     </div>

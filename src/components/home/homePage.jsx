@@ -21,6 +21,7 @@ const HomePage = () => {
                 <div className="feature">
                     <h3>Reusable</h3>
                     <p>Components can be reused easily.</p>
+                    <Link to="/products" className="product-btn">Product List</Link>
                 </div>
 
                 <div className="feature">

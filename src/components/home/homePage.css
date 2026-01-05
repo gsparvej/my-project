@@ -27,6 +27,15 @@
     font-size: 16px;
 }
 
+.product-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: #61dafb;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 .home-features {
     display: flex;
     justify-content: space-around;
