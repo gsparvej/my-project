@@ -1,6 +1,6 @@
-const { useState, useEffect } = require("react");
-import AddUser from "./components/users/addUser";
-require("./userList.css");
+import { useState, useEffect } from "react";
+import AddUser from "./addUser";
+import "./userList.css";
 
 
 const UserList = () => {
