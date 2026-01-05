@@ -1,11 +1,11 @@
 import React from "react";
-import UserCreate from "./components/users/userList";
+import UserList from "./components/users/userList";
 
 
 function App() {
   return (
     <div>
-      <UserCreate />
+      <UserList />
     </div>
   );
 }

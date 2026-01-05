@@ -1,6 +1,7 @@
 const { useState, useEffect } = require("react");
-import AddUser from ".src/components/users/addUser";
+import AddUser from "./components/users/addUser";
 require("./userList.css");
+
 
 const UserList = () => {
     const [users, setUsers] = useState(() => {
