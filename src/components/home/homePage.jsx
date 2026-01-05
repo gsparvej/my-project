@@ -27,6 +27,7 @@ const HomePage = () => {
                 <div className="feature">
                     <h3>Modern</h3>
                     <p>Uses modern JavaScript features.</p>
+                    <Link to="/orders" className="order-btn">Orders</Link>
                 </div>
             </section>
         </div>

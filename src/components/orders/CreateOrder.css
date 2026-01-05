@@ -1,0 +1,197 @@
+/* Modal Overlay with soft blur + pastel gradient */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 25, 40, 0.7);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    overflow: hidden;
+}
+
+/* Glass container with pastel gradient and smooth shadow */
+.glass-modal.aesthetic-modal {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    max-height: 90vh;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 24px;
+    padding: 30px 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.3s ease forwards;
+}
+
+/* Subtle floating pastel glow */
+.accent-glow {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.4) 0%, rgba(0, 0, 0, 0) 80%);
+    z-index: 0;
+    filter: blur(15px);
+}
+
+/* Header text styles */
+.header-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.icon-badge {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #f6a5c0, #b993d6);
+    color: white;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.6rem;
+    box-shadow: 0 8px 20px rgba(246, 165, 192, 0.5);
+}
+
+.glass-title {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.modal-subtitle {
+    color: #d1d5db;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+/* Form Inputs with soft glow on focus */
+.input-field {
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field span {
+    font-size: 0.75rem;
+    color: #161616;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.input-field input,
+.input-field select,
+.input-field textarea {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-radius: 14px;
+    padding: 14px;
+    color: #000;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.input-field input:focus,
+.input-field select:focus,
+.input-field textarea:focus {
+    outline: none;
+    border: 2px solid #f6a5c0;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 12px rgba(246, 165, 192, 0.5);
+}
+
+.input-field select {
+    cursor: pointer;
+}
+
+.input-field select option {
+    background: #1f2937;
+    color: #fff;
+}
+
+/* Total Price Display */
+.total-price-display {
+    background: rgba(246, 165, 192, 0.15);
+    border: 2px solid rgba(246, 165, 192, 0.3);
+    border-radius: 14px;
+    padding: 16px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-label {
+    color: #b5d0f0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.total-amount {
+    color: #f6a5c0;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+/* Buttons with gradient and hover scale effect */
+.glass-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cancel-link {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border: none;
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 12px 26px;
+    border-radius: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cancel-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.6);
+}
+
+.submit-glass {
+    background: linear-gradient(135deg, #f6a5c0, #b993d6);
+    color: #fff;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-glass:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(246, 165, 192, 0.6);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
