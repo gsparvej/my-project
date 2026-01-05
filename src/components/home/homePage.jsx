@@ -1,5 +1,6 @@
 import React from "react";
 import "./homePage.css";
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
     return (
@@ -14,7 +15,7 @@ const HomePage = () => {
                 <div className="feature">
                     <h3>Fast</h3>
                     <p>React makes UI fast and responsive.</p>
-                    <button className="user-btn">User List</button>
+                    <Link to="/users" className="user-btn">User List</Link>
                 </div>
 
                 <div className="feature">
