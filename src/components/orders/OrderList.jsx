@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CreateOrder from "./CreateOrder";
+import ShowAllOrder from "./ShowAllOrder";
 import "./OrderList.css";
-import { Link } from "react-router-dom";
 
 const OrderList = () => {
     const [orders, setOrders] = useState(() => {
@@ -12,9 +12,7 @@ const OrderList = () => {
     const [users] = useState(() => {
         const savedUsers = localStorage.getItem("users");
         return savedUsers ? JSON.parse(savedUsers) : [];
-    });
-
-    const [products] = useState(() => {
+    }); const [products] = useState(() => {
         const savedProducts = localStorage.getItem("products");
         return savedProducts ? JSON.parse(savedProducts) : [];
     });
@@ -27,7 +25,9 @@ const OrderList = () => {
         status: "pending"
     });
 
+
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isShowAllOrdersModalOpen, setIsShowAllOrdersModalOpen] = useState(false);
 
     useEffect(() => {
         localStorage.setItem("orders", JSON.stringify(orders));
@@ -95,12 +95,15 @@ const OrderList = () => {
         setIsModalOpen(true);
     };
     const openShowAllOrdersModal = () => {
-        setIsModalOpen(true);
+        setIsShowAllOrdersModalOpen(true);
     };
 
     const closeModal = () => {
         setIsModalOpen(false);
         setOrder({ id: "", userId: "", productId: "", quantity: 1, status: "pending" });
+    };
+    const closeShowModal = () => {
+        setIsShowAllOrdersModalOpen(false);
     };
 
     const handleDeleteOrder = (id) => {
@@ -236,6 +239,14 @@ const OrderList = () => {
                     handleSubmit={handleAddOrder}
                     closeModal={closeModal}
                     isEditing={!!order.id}
+                />
+            )}
+            {isShowAllOrdersModalOpen && (
+                <ShowAllOrder
+                    orders={orders}
+                    users={users}
+                    products={products}
+                    closeModal={closeShowModal}
                 />
             )}
         </div>

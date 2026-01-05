@@ -27,6 +27,10 @@
     animation: fadeIn 0.3s ease forwards;
 }
 
+.glass-modal.show-all-orders-modal {
+    max-width: 550px;
+}
+
 /* Subtle floating pastel glow */
 .accent-glow {
     position: absolute;
@@ -181,6 +185,102 @@
 .submit-glass:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(246, 165, 192, 0.6);
+}
+
+/* Show All Orders Modal Specific Styles */
+.orders-modal-body {
+    margin-top: 20px;
+}
+
+.modal-table-wrapper {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.compact-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.compact-table th {
+    text-align: left;
+    padding: 12px 15px;
+    color: #d1d5db;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.compact-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.id-col {
+    font-family: monospace;
+    color: #b993d6;
+}
+
+.customer-cell {
+    display: flex;
+    flex-direction: column;
+}
+
+.c-name {
+    font-weight: 600;
+}
+
+.price-col {
+    color: #f6a5c0;
+    font-weight: 700;
+}
+
+.status-pill {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status-pending {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+}
+
+.status-completed {
+    background: rgba(52, 211, 153, 0.2);
+    color: #34d399;
+}
+
+.status-cancelled {
+    background: rgba(248, 113, 113, 0.2);
+    color: #f87171;
+}
+
+.modal-footer {
+    margin-top: 25px;
+}
+
+.full-width-btn {
+    width: 100%;
+    display: block;
+}
+
+.empty-modal-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #9ca3af;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
 }
 
 /* Fade-in animation */
