@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCrud from "./ProductCrud";
+import "./ProductList.css";
 
 const ProductList = () => {
     const [products, setProducts] = useState(() => {
@@ -60,20 +61,55 @@ const ProductList = () => {
     };
 
     return (
-        <div className="product-container">
-            <button className="add-btn" onClick={openAddModal}>Add Product</button>
-            <h3 className="list-title">Product List</h3>
-            <ul className="product-list">
-                {products.map((p) => (
-                    <li key={p.id} className="product-item">
-                        <span className="product-info">{p.name} | {p.price} | {p.description}</span>
-                        <div className="action-buttons">
-                            <button className="delete-btn" onClick={() => handleDeleteProduct(p.id)}>Delete</button>
-                            <button className="edit-btn" onClick={() => handleEditProduct(p.id)}>Edit</button>
+        <div className="product-page">
+            <div className="product-header">
+                <div className="header-content">
+                    <h1 className="page-title">
+                        <span className="title-icon">📦</span>
+                        Product Catalog
+                    </h1>
+                    <p className="page-subtitle">Manage your inventory with style</p>
+                </div>
+                <button className="add-product-btn" onClick={openAddModal}>
+                    <span className="btn-icon">+</span>
+                    Add Product
+                </button>
+            </div>
+
+            <div className="products-grid">
+                {products.length === 0 ? (
+                    <div className="empty-state">
+                        <div className="empty-icon">📭</div>
+                        <h3>No Products Yet</h3>
+                        <p>Start by adding your first product</p>
+                    </div>
+                ) : (
+                    products.map((p) => (
+                        <div key={p.id} className="product-card">
+                            <div className="card-header">
+                                <div className="product-badge">New</div>
+                                <h3 className="product-name">{p.name}</h3>
+                            </div>
+                            <div className="card-body">
+                                <div className="price-tag">
+                                    <span className="currency">$</span>
+                                    <span className="amount">{p.price}</span>
+                                </div>
+                                <p className="product-description">{p.description}</p>
+                            </div>
+                            <div className="card-actions">
+                                <button className="action-edit" onClick={() => handleEditProduct(p.id)}>
+                                    <span>✎</span> Edit
+                                </button>
+                                <button className="action-delete" onClick={() => handleDeleteProduct(p.id)}>
+                                    <span>🗑</span> Delete
+                                </button>
+                            </div>
                         </div>
-                    </li>
-                ))}
-            </ul>
+                    ))
+                )}
+            </div>
+
             {isModalOpen && (
                 <ProductCrud
                     product={product}

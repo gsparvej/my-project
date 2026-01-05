@@ -6,6 +6,7 @@ const AddUser = ({ user, handleChange, handleSubmit, closeModal, isEditing }) =>
             <div className="modal-content">
                 <h2 className="title">{isEditing ? 'Edit User' : 'Create User'}</h2>
                 <div className="user-form">
+                    <span>Full Name</span>
                     <input
                         className="form-input"
                         type="text"
@@ -14,6 +15,7 @@ const AddUser = ({ user, handleChange, handleSubmit, closeModal, isEditing }) =>
                         value={user.name}
                         onChange={handleChange}
                     />
+                    <span>Email Address</span>
                     <input
                         className="form-input"
                         type="email"
@@ -22,6 +24,7 @@ const AddUser = ({ user, handleChange, handleSubmit, closeModal, isEditing }) =>
                         value={user.email}
                         onChange={handleChange}
                     />
+                    <span>Address</span>
                     <input
                         className="form-input"
                         type="text"
@@ -30,6 +33,7 @@ const AddUser = ({ user, handleChange, handleSubmit, closeModal, isEditing }) =>
                         value={user.address}
                         onChange={handleChange}
                     />
+                    <span>Phone Number</span>
                     <input
                         className="form-input"
                         type="text"
@@ -38,6 +42,7 @@ const AddUser = ({ user, handleChange, handleSubmit, closeModal, isEditing }) =>
                         value={user.phone}
                         onChange={handleChange}
                     />
+                    <span>Age</span>
                     <input
                         className="form-input"
                         type="text"
