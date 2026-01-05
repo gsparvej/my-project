@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CreateOrder from "./CreateOrder";
 import "./OrderList.css";
+import { Link } from "react-router-dom";
 
 const OrderList = () => {
     const [orders, setOrders] = useState(() => {
@@ -93,6 +94,9 @@ const OrderList = () => {
         setOrder({ id: "", userId: "", productId: "", quantity: 1, status: "pending" });
         setIsModalOpen(true);
     };
+    const openShowAllOrdersModal = () => {
+        setIsModalOpen(true);
+    };
 
     const closeModal = () => {
         setIsModalOpen(false);
@@ -149,6 +153,11 @@ const OrderList = () => {
                     <span className="btn-icon">+</span>
                     New Order
                 </button>
+                <button onClick={openShowAllOrdersModal}>
+
+                    Show Orders
+                </button>
+
             </div>
 
             <div className="orders-container">
