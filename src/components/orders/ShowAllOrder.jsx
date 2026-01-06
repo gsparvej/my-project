@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './OrderList.css';
+
 
 const ShowAllOrder = ({ orders, closeModal }) => {
     // Disable page scroll when modal is open
@@ -11,25 +11,22 @@ const ShowAllOrder = ({ orders, closeModal }) => {
     }, []);
 
     return (
-        <div className="modal-overlay">
-            <div className="glass-modal aesthetic-modal show-all-orders-modal">
-                <div className="accent-glow"></div>
-
-                <div className="modal-content">
-                    <div className="header-section">
-                        <div className="icon-badge">📋</div>
-                        <h2 className="glass-title">All Orders Summary</h2>
-                        <p className="modal-subtitle">Current status of all purchases</p>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <h2>All Orders Summary</h2>
+                        <p>Current status of all purchases</p>
                     </div>
 
-                    <div className="orders-modal-body">
+                    <div>
                         {orders.length === 0 ? (
-                            <div className="empty-modal-state">
+                            <div>
                                 <p>No orders recorded yet.</p>
                             </div>
                         ) : (
-                            <div className="modal-table-wrapper">
-                                <table className="compact-table">
+                            <div>
+                                <table>
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -41,18 +38,10 @@ const ShowAllOrder = ({ orders, closeModal }) => {
                                     <tbody>
                                         {orders.map((o) => (
                                             <tr key={o.id}>
-                                                <td className="id-col">#{o.id.toString().slice(-4)}</td>
-                                                <td>
-                                                    <div className="customer-cell">
-                                                        <span className="c-name">{o.userName}</span>
-                                                    </div>
-                                                </td>
-                                                <td className="price-col">${o.totalPrice.toFixed(2)}</td>
-                                                <td>
-                                                    <span className={`status-pill status-${o.status}`}>
-                                                        {o.status}
-                                                    </span>
-                                                </td>
+                                                <td>#{o.id.toString().slice(-4)}</td>
+                                                <td>{o.userName}</td>
+                                                <td>${o.totalPrice.toFixed(2)}</td>
+                                                <td>{o.status}</td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -61,8 +50,8 @@ const ShowAllOrder = ({ orders, closeModal }) => {
                         )}
                     </div>
 
-                    <div className="modal-footer">
-                        <button className="submit-glass full-width-btn" onClick={closeModal}>
+                    <div>
+                        <button onClick={closeModal}>
                             Close Window
                         </button>
                     </div>
